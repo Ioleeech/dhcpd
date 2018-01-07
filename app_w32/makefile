@@ -1,5 +1,5 @@
 # Variables
-       PROJECT  := win_dhcp
+       PROJECT  := dhcpd
 
        CUR_DIR  := $(shell cd)
        INC_DIR  := ${CUR_DIR}
