@@ -33,9 +33,8 @@ int MW_AddressList_Init(MAIN_WINDOW* pMainWnd)
 {
     DWORD dwStyle = WS_CHILD
                   | WS_VISIBLE
-                  | WS_VSCROLL
                   | LVS_REPORT
-                  | LVS_EDITLABELS;
+                  | LVS_SINGLESEL;
     DWORD dwExStyle = WS_EX_CLIENTEDGE;
 
     if (! pMainWnd->hWnd)
@@ -62,6 +61,8 @@ int MW_AddressList_Init(MAIN_WINDOW* pMainWnd)
                                          NULL);                // LPVOID    lpParam
     if (! pMainWnd->hAddrList)
         return EXIT_FAILURE;
+
+    ListView_SetExtendedListViewStyle(pMainWnd->hAddrList, LVS_EX_FULLROWSELECT);
 
     // Address list consists from 3 columns: client name, MAC, IP
     LVCOLUMN column = { 0 };
