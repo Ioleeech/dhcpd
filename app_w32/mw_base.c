@@ -120,7 +120,8 @@ static LRESULT CALLBACK _MW_Window_CmdProc(HWND hWnd, UINT uMsg, WPARAM wParam, 
             {
                 // Main window is hidden, add application icon in system tray
                 MAIN_WINDOW* pMainWnd = (MAIN_WINDOW*) GetWindowLongPtr(hWnd, GWLP_USERDATA);
-                MW_SysTray_Add(pMainWnd, NULL, NULL);
+                LPCTSTR      sTrayTip = TEXT(WINDOW_TITLE_TEXT " : " STATUS_TEXT_STOPPED);
+                MW_SysTray_Add(pMainWnd, sTrayTip, NULL);
             }
             break;
 
@@ -137,6 +138,7 @@ int MW_Window_Init(MAIN_WINDOW* pMainWnd, int nCmdShow)
     DWORD   dwStyle    = WS_OVERLAPPEDWINDOW;
     LPCTSTR sClassName = TEXT(WINDOW_CLASS_NAME);
     LPCTSTR sWinTitle  = TEXT(WINDOW_TITLE_TEXT);
+    LPCTSTR sTrayTip   = TEXT(WINDOW_TITLE_TEXT " : " STATUS_TEXT_STOPPED);
     HICON   hIcon      = (HICON)   LoadImage(NULL, IDI_APPLICATION, IMAGE_ICON,   0, 0, LR_DEFAULTCOLOR | LR_DEFAULTSIZE | LR_SHARED);
     HICON   hIconSm    = (HICON)   LoadImage(NULL, IDI_APPLICATION, IMAGE_ICON,   0, 0, LR_DEFAULTCOLOR | LR_DEFAULTSIZE | LR_SHARED);
     HCURSOR hCursor    = (HCURSOR) LoadImage(NULL, IDC_ARROW,       IMAGE_CURSOR, 0, 0, LR_DEFAULTCOLOR | LR_DEFAULTSIZE | LR_SHARED);
@@ -192,7 +194,7 @@ int MW_Window_Init(MAIN_WINDOW* pMainWnd, int nCmdShow)
         return EXIT_FAILURE;
 
     // Add system tray icon
-    if (MW_SysTray_Add(pMainWnd, sWinTitle, hIcon) != EXIT_SUCCESS)
+    if (MW_SysTray_Add(pMainWnd, sTrayTip, hIcon) != EXIT_SUCCESS)
         return EXIT_FAILURE;
 
     // Show window

@@ -23,7 +23,7 @@
 #define STATUS_TEXT_STARTED   "Started"
 
 #define WINDOW_CLASS_NAME     "cMainWindow"
-#define WINDOW_TITLE_TEXT     "uDHCP server"
+#define WINDOW_TITLE_TEXT     "DHCP server"
 
 #define WINDOW_STATE_DEFAULT  SW_HIDE
 #define WINDOW_WIDTH_DEFAULT  400
