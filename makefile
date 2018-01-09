@@ -7,6 +7,9 @@ export OUT_DIR  ?= ${CUR_DIR}\_output
 
        TARGETS  := $(patsubst ${CUR_DIR}\\%,${OUT_DIR}/%.txt,${SUB_DIRS})
 
+# Variables from config file
+include ${CUR_DIR}/config.mk
+
 # Commands
 ECHO  = echo
 MKDIR = mkdir
@@ -24,5 +27,5 @@ ${OUT_DIR} :
 	@${MKDIR} $@
 
 ${OUT_DIR}/%.txt : ${CUR_DIR}/%
-	@${MAKE} -C $< ${MAKECMDGOALS}
+	@${MAKE} -C $< all
 	@${ECHO} DONE > $@

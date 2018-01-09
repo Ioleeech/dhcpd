@@ -12,18 +12,26 @@ export OUT_DIR  ?= ${CUR_DIR}\_output
        BINARY   := ${OUT_DIR}/${PROJECT}.exe
 
        CPPFLAGS += $(patsubst %,-I%,${INC_DIR})
-       CPPFLAGS += -DUNICODE -D_UNICODE
        CFLAGS   += -Wall
-       CFLAGS   += -g
 #      CFLAGS   += -mno-ms-bitfields
        LDFLAGS  += -L${OUT_DIR}
-#      LDFLAGS  += -mwindows
-       LDFLAGS  += -mconsole
-#      LDFLAGS  += -Wl,-subsystem,windows
-       LDFLAGS  += -g
-#      LDFLAGS  += -s
        LD_LIBS  += -lcomctl32
-#      LD_LIBS  += -lcomdlg32 -lgdi32
+
+# Dependences from config
+ifeq ($(CFG_UNICODE),y)
+       CPPFLAGS += -DUNICODE -D_UNICODE
+endif
+
+ifeq ($(CFG_DEBUG),y)
+       CPPFLAGS += -DDEBUG -D_DEBUG
+       CFLAGS   += -g
+       LDFLAGS  += -g
+       LDFLAGS  += -mconsole
+else
+       LDFLAGS  += -s
+       LDFLAGS  += -mwindows
+#      LDFLAGS  += -Wl,-subsystem,windows
+endif
 
 # Commands
 CC    = gcc
