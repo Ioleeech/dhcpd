@@ -105,7 +105,6 @@ static LRESULT CALLBACK _MW_Window_CmdProc(HWND hWnd, UINT uMsg, WPARAM wParam, 
                     return 0;
 
                 default:
-                    printf("wParam = 0x%04X\n", wParam);
                     break;
             }
             break;
@@ -125,61 +124,7 @@ static LRESULT CALLBACK _MW_Window_CmdProc(HWND hWnd, UINT uMsg, WPARAM wParam, 
             }
             break;
 
-        case WM_CREATE:            // 0x0001
-        case WM_MOVE:              // 0x0003
-        case WM_ACTIVATE:          // 0x0006
-        case WM_SETFOCUS:          // 0x0007
-        case WM_KILLFOCUS:         // 0x0008
-        case WM_GETTEXT:           // 0x000D
-        case WM_PAINT:             // 0x000F
-        case WM_QUERYOPEN:         // 0x0013
-        case WM_ERASEBKGND:        // 0x0014
-        case WM_ACTIVATEAPP:       // 0x001C
-        case WM_CANCELMODE:        // 0x001F
-        case WM_SETCURSOR:         // 0x0020
-        case WM_MOUSEACTIVATE:     // 0x0021
-        case WM_GETMINMAXINFO:     // 0x0024
-        case WM_GETOBJECT:         // 0x003D
-        case WM_WINDOWPOSCHANGING: // 0x0046
-        case WM_WINDOWPOSCHANGED:  // 0x0047
-        case WM_CONTEXTMENU:       // 0x007B
-        case WM_GETICON:           // 0x007F
-        case WM_NCCREATE:          // 0x0081
-        case WM_NCDESTROY:         // 0x0082
-        case WM_NCCALCSIZE:        // 0x0083
-        case WM_NCHITTEST:         // 0x0084
-        case WM_NCPAINT:           // 0x0085
-        case WM_NCACTIVATE:        // 0x0086
-        case WM_SYNCPAINT:         // 0x0088
-        case WM_NCLBUTTONDBLCLK:   // 0x00A3
-        case WM_NCMOUSEMOVE:       // 0x00A0
-        case WM_NCLBUTTONDOWN:     // 0x00A1
-        case WM_KEYUP:             // 0x0101
-        case WM_SYSKEYDOWN:        // 0x0104
-        case WM_SYSKEYUP:          // 0x0106
-        case WM_INITMENU:          // 0x0116
-        case WM_INITMENUPOPUP:     // 0x0117
-        case WM_MENUSELECT:        // 0x011F
-        case WM_ENTERIDLE:         // 0x0121
-        case WM_UNINITMENUPOPUP:   // 0x0125
-        case WM_MOUSEFIRST:        // 0x0200
-        case WM_LBUTTONDOWN:       // 0x0201
-        case WM_LBUTTONUP:         // 0x0202
-        case WM_RBUTTONDOWN:       // 0x0204
-        case WM_RBUTTONUP:         // 0x0205
-        case WM_ENTERMENULOOP:     // 0x0211
-        case WM_EXITMENULOOP:      // 0x0212
-        case WM_SIZING:            // 0x0214
-        case WM_CAPTURECHANGED:    // 0x0215
-        case WM_MOVING:            // 0x0216
-        case WM_ENTERSIZEMOVE:     // 0x0231
-        case WM_EXITSIZEMOVE:      // 0x0232
-        case WM_IME_SETCONTEXT:    // 0x0281
-        case WM_IME_NOTIFY:        // 0x0282
-            break;
-
         default:
-            printf("uMsg = 0x%04X\n", uMsg);
             break;
     }
 
